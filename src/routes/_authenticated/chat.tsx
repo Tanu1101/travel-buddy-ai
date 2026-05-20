@@ -129,27 +129,7 @@ function ChatPage() {
       content: msg,
     });
 
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      const resp = await fetch("/_serverFn/chat-stream", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(session ? { Authorization: `Bearer ${session.access_token}` } : {}),
-        },
-        body: JSON.stringify({
-          data: { messages: [...history, { role: "user", content: msg }] },
-        }),
-      });
-
-      // The serverFn route above isn't directly callable — use useServerFn instead.
-      // (Fallback path; the real call is below.)
-      void resp;
-    } catch {
-      /* no-op */
-    }
-
-    // Real call via useServerFn pattern: import streamChat and call client-side
+    // Call the streaming server function
     let assembled = "";
     try {
       const { streamChat } = await import("@/lib/chat.functions");

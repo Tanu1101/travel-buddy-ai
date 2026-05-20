@@ -31,7 +31,7 @@ const InputSchema = z.object({
     .max(40),
 });
 
-export const streamChat = createServerFn({ method: "POST", response: "raw" })
+export const streamChat = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data) => InputSchema.parse(data))
   .handler(async ({ data }) => {
