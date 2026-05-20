@@ -1,0 +1,8 @@
+# WanderCraft
+
+> AI travel planner for India and the world. Day-by-day itineraries, real hotels & restaurants, honest ₹ budgets, and a chat assistant (WanderBot).
+
+## Pages
+- [Home](/): Landing page with overview and features
+- [Planner](/planner): Trip planner (itineraries, budgets)
+- [Destinations](/destinations): Curated destinations and guides
