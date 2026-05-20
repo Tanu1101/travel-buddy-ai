@@ -15,6 +15,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
 
 const SignupRoute = SignupRouteImport.update({
@@ -46,6 +47,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DestinationsRoute,
+} as any)
 const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
   id: '/chat',
   path: '/chat',
@@ -54,35 +60,52 @@ const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/login': typeof LoginRoute
   '/planner': typeof PlannerRoute
   '/signup': typeof SignupRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/login': typeof LoginRoute
   '/planner': typeof PlannerRoute
   '/signup': typeof SignupRoute
   '/chat': typeof AuthenticatedChatRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
-  '/destinations': typeof DestinationsRoute
+  '/destinations': typeof DestinationsRouteWithChildren
   '/login': typeof LoginRoute
   '/planner': typeof PlannerRoute
   '/signup': typeof SignupRoute
   '/_authenticated/chat': typeof AuthenticatedChatRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/destinations' | '/login' | '/planner' | '/signup' | '/chat'
+  fullPaths:
+    | '/'
+    | '/destinations'
+    | '/login'
+    | '/planner'
+    | '/signup'
+    | '/chat'
+    | '/destinations/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/destinations' | '/login' | '/planner' | '/signup' | '/chat'
+  to:
+    | '/'
+    | '/destinations'
+    | '/login'
+    | '/planner'
+    | '/signup'
+    | '/chat'
+    | '/destinations/$slug'
   id:
     | '__root__'
     | '/'
@@ -92,12 +115,13 @@ export interface FileRouteTypes {
     | '/planner'
     | '/signup'
     | '/_authenticated/chat'
+    | '/destinations/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
-  DestinationsRoute: typeof DestinationsRoute
+  DestinationsRoute: typeof DestinationsRouteWithChildren
   LoginRoute: typeof LoginRoute
   PlannerRoute: typeof PlannerRoute
   SignupRoute: typeof SignupRoute
@@ -147,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
+      parentRoute: typeof DestinationsRoute
+    }
     '/_authenticated/chat': {
       id: '/_authenticated/chat'
       path: '/chat'
@@ -169,10 +200,22 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
   AuthenticatedRouteChildren,
 )
 
+interface DestinationsRouteChildren {
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
+}
+
+const DestinationsRouteChildren: DestinationsRouteChildren = {
+  DestinationsSlugRoute: DestinationsSlugRoute,
+}
+
+const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
+  DestinationsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
-  DestinationsRoute: DestinationsRoute,
+  DestinationsRoute: DestinationsRouteWithChildren,
   LoginRoute: LoginRoute,
   PlannerRoute: PlannerRoute,
   SignupRoute: SignupRoute,
