@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
-import { findDestination } from "@/lib/destinations-data";
+import { findDestination, type Destination } from "@/lib/destinations-data";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/destinations/$slug")({
 });
 
 function DestinationDetail() {
-  const { dest: d } = Route.useLoaderData();
+  const { dest: d } = Route.useLoaderData() as { dest: Destination };
 
   return (
     <div className="min-h-screen bg-gradient-hero">
