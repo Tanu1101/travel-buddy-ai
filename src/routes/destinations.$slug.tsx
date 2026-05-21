@@ -21,15 +21,15 @@ export const Route = createFileRoute("/destinations/$slug")({
   },
   head: ({ loaderData }) => {
     const d = loaderData?.dest;
-    if (!d) return { meta: [{ title: "Destination · WanderCraft" }] };
+    if (!d) return { meta: [{ title: "Destination · TripZa" }] };
     return {
       meta: [
-        { title: `${d.name} Travel Guide · WanderCraft` },
+        { title: `${d.name} Travel Guide · TripZa` },
         {
           name: "description",
           content: `${d.name}: ${d.tagline} Best time ${d.bestTime}. Budget ${d.budgetPerDay}/day.`,
         },
-        { property: "og:title", content: `${d.name} Travel Guide · WanderCraft` },
+        { property: "og:title", content: `${d.name} Travel Guide · TripZa` },
         { property: "og:description", content: d.tagline },
         { property: "og:image", content: d.image },
       ],
@@ -118,7 +118,7 @@ function DestinationDetail() {
             Ready to plan {d.name}?
           </h3>
           <p className="mx-auto mt-3 max-w-md opacity-80">
-            Let WanderBot build a day-by-day itinerary from your dates and budget.
+            Let TripBot build a day-by-day itinerary from your dates and budget.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="h-12 rounded-full bg-primary px-7 shadow-coral">
@@ -133,7 +133,7 @@ function DestinationDetail() {
               className="h-12 rounded-full border-background/30 bg-transparent px-7 text-background hover:bg-background hover:text-foreground"
             >
               <Link to="/chat">
-                <MessageCircle className="mr-2 h-4 w-4" /> Ask WanderBot
+                <MessageCircle className="mr-2 h-4 w-4" /> Ask TripBot
               </Link>
             </Button>
           </div>
