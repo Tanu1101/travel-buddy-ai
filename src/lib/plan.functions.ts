@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
-const PLANNER_SYSTEM = `You are WanderBot, an expert travel planner for Indian travelers.
+const PLANNER_SYSTEM = `You are TripBot, an expert travel planner for Indian travelers.
 Generate a complete trip itinerary in clean markdown. Always:
   • Open with a 2-sentence overview of the destination & best season.
   • Provide a Day-by-Day plan (Morning / Afternoon / Evening blocks).

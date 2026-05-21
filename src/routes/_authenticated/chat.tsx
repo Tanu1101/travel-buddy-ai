@@ -18,7 +18,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/_authenticated/chat")({
-  head: () => ({ meta: [{ title: "Chat with WanderBot · WanderCraft" }] }),
+  head: () => ({ meta: [{ title: "Chat with TripBot · TripZa" }] }),
   component: ChatPage,
 });
 
@@ -28,7 +28,7 @@ type Session = { id: string; title: string; updated_at: string };
 const WELCOME: Msg = {
   role: "assistant",
   content:
-    "👋 Hey there! I'm **WanderBot** — your AI travel assistant.\n\nI can help you with:\n- 🗺️ Day-by-day itineraries\n- 🏨 Real hotels with ₹ pricing\n- 🍛 Local food & restaurants\n- 🚆 Routes & transport tips\n- 💰 Honest budgets\n\nWhere are you dreaming of going?",
+    "👋 Hey there! I'm **TripBot** — your AI travel assistant.\n\nI can help you with:\n- 🗺️ Day-by-day itineraries\n- 🏨 Real hotels with ₹ pricing\n- 🍛 Local food & restaurants\n- 🚆 Routes & transport tips\n- 💰 Honest budgets\n\nWhere are you dreaming of going?",
 };
 
 const SUGGESTIONS = [
@@ -301,7 +301,7 @@ function ChatPage() {
                     send(input);
                   }
                 }}
-                placeholder="Ask WanderBot anything about travel…"
+                placeholder="Ask TripBot anything about travel…"
                 rows={1}
                 className="min-h-[40px] max-h-40 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0"
               />
@@ -315,7 +315,7 @@ function ChatPage() {
               </Button>
             </div>
             <p className="mt-2 text-center text-[11px] text-muted-foreground">
-              WanderBot can make mistakes — always verify prices and availability.
+              TripBot can make mistakes — always verify prices and availability.
             </p>
           </form>
         </main>

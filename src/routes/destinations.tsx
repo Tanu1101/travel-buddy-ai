@@ -8,13 +8,13 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
-      { title: "Destinations · WanderCraft" },
+      { title: "Destinations · TripZa" },
       {
         name: "description",
         content:
           "Curated destinations across India and beyond — Goa, Manali, Jaipur, Kerala, Bali, Ladakh and more, with hotels, restaurants and ₹ budgets.",
       },
-      { property: "og:title", content: "Destinations · WanderCraft" },
+      { property: "og:title", content: "Destinations · TripZa" },
       {
         property: "og:description",
         content: "Hand-picked travel spots with real hotels, food, and ₹ pricing.",

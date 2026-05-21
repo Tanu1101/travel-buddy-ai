@@ -65,13 +65,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "WanderCraft — AI Travel Planner for India & the World" },
+      { title: "TripZa — AI Travel Planner for India & the World" },
       {
         name: "description",
         content:
-          "Plan trips with WanderCraft: AI-powered itineraries, real hotels & restaurants, day-by-day plans, and a chat assistant tuned for Indian travelers.",
+          "Plan trips with TripZa: AI-powered itineraries, real hotels & restaurants, day-by-day plans, and a chat assistant tuned for Indian travelers.",
       },
-      { property: "og:title", content: "WanderCraft — AI Travel Planner" },
+      { property: "og:title", content: "TripZa — AI Travel Planner" },
       { property: "og:description", content: "Day-by-day plans, real hotels, smart budgets, AI chat assistant." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
