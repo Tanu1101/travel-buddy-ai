@@ -66,13 +66,13 @@ Interests: ${data.interests?.trim() || "general sightseeing, local food, and a b
 
     if (!upstream.ok) {
       const errText = await upstream.text();
-      console.error("AI gateway error:", upstream.status, errText);
+      console.error("Groq API error:", upstream.status, errText);
       const msg =
         upstream.status === 429
           ? "Too many requests — try again in a moment."
-          : upstream.status === 402
-            ? "AI credits exhausted. Add funds in Workspace Usage."
-            : "AI gateway error.";
+          : upstream.status === 401
+            ? "Invalid Groq API key."
+            : "Groq API error.";
       return new Response(JSON.stringify({ error: msg }), {
         status: upstream.status,
         headers: { "Content-Type": "application/json" },
