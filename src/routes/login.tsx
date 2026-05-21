@@ -8,7 +8,7 @@ import { Compass } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Sign in · WanderCraft" }] }),
+  head: () => ({ meta: [{ title: "Sign in · TripZa" }] }),
   component: LoginPage,
 });
 
@@ -35,7 +35,7 @@ function LoginPage() {
           <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground shadow-coral">
             <Compass className="h-4 w-4" />
           </span>
-          WanderCraft
+          TripZa
         </Link>
         <div className="rounded-3xl border border-border bg-card p-8 shadow-soft">
           <h1 className="font-display text-2xl font-bold text-foreground">Welcome back</h1>

@@ -1,6 +1,6 @@
-# WanderCraft
+# TripZa
 
-> AI travel planner for India and the world. Day-by-day itineraries, real hotels & restaurants, honest ₹ budgets, and a chat assistant (WanderBot).
+> AI travel planner for India and the world. Day-by-day itineraries, real hotels & restaurants, honest ₹ budgets, and a chat assistant (TripBot).
 
 ## Pages
 - [Home](/): Landing page with overview and features

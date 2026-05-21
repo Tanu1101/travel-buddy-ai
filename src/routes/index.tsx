@@ -14,11 +14,11 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WanderCraft — Plan smarter trips with an AI travel assistant" },
+      { title: "TripZa — Plan smarter trips with an AI travel assistant" },
       {
         name: "description",
         content:
-          "Day-by-day itineraries, real hotels and restaurants, honest budgets in ₹, and a WanderBot chat assistant — built for Indian travelers.",
+          "Day-by-day itineraries, real hotels and restaurants, honest budgets in ₹, and a TripBot chat assistant — built for Indian travelers.",
       },
     ],
   }),
@@ -51,7 +51,7 @@ function Landing() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" className="h-12 rounded-full px-7 text-base shadow-coral">
               <Link to="/chat">
-                <MessageCircle className="mr-2 h-4 w-4" /> Talk to WanderBot
+                <MessageCircle className="mr-2 h-4 w-4" /> Talk to TripBot
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="h-12 rounded-full px-7 text-base">
@@ -103,7 +103,7 @@ function Landing() {
           />
           <Feature
             icon={<MessageCircle className="h-5 w-5" />}
-            title="WanderBot AI chat"
+            title="TripBot AI chat"
             text="Streaming answers with markdown, history saved across devices."
           />
           <Feature
@@ -130,7 +130,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border/60 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} WanderCraft. Plan boldly.
+        © {new Date().getFullYear()} TripZa. Plan boldly.
       </footer>
     </div>
   );

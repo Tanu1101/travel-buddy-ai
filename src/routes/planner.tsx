@@ -28,16 +28,16 @@ export const Route = createFileRoute("/planner")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Trip Planner · WanderCraft" },
+      { title: "Trip Planner · TripZa" },
       {
         name: "description",
         content:
-          "Generate a day-by-day itinerary with real hotels, food, and a ₹ budget breakdown — powered by WanderBot AI.",
+          "Generate a day-by-day itinerary with real hotels, food, and a ₹ budget breakdown — powered by TripBot AI.",
       },
-      { property: "og:title", content: "AI Trip Planner · WanderCraft" },
+      { property: "og:title", content: "AI Trip Planner · TripZa" },
       {
         property: "og:description",
-        content: "Tell WanderBot where, when, and your budget — get a full plan in seconds.",
+        content: "Tell TripBot where, when, and your budget — get a full plan in seconds.",
       },
     ],
   }),
@@ -303,7 +303,7 @@ function PlannerPage() {
               />
               {busy && (
                 <div className="mt-2 inline-flex items-center text-sm text-muted-foreground">
-                  <Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> WanderBot is writing…
+                  <Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> TripBot is writing…
                 </div>
               )}
             </article>
@@ -338,7 +338,7 @@ function EmptyState() {
         </p>
         <Button asChild variant="outline" className="mt-5 rounded-full">
           <Link to="/chat">
-            <MessageCircle className="mr-2 h-4 w-4" /> Chat with WanderBot
+            <MessageCircle className="mr-2 h-4 w-4" /> Chat with TripBot
           </Link>
         </Button>
       </div>
